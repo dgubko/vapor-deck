@@ -30,7 +30,7 @@ export const GameCard = (props: GameCardProps) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Link to="#">Explore</Link>
+        <Link to={`/discover/${props.slug}`}>Explore</Link>
       </CardActions>
     </Card>
   );
