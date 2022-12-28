@@ -1,3 +1,4 @@
+import "./GameCard.scss";
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -30,7 +31,9 @@ export const GameCard = (props: GameCardProps) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Link to={`/discover/${props.slug}`}>Explore</Link>
+        <Link className="expore-button" to={`/discover/${props.slug}`}>
+          Explore
+        </Link>
       </CardActions>
     </Card>
   );
