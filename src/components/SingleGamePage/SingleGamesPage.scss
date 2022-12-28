@@ -1,0 +1,19 @@
+.App > div {
+  padding: 0px 40px;
+}
+
+.game-name {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0px;
+}
+
+.game-images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding-top: 40px;
+  & > img {
+    width: 280px;
+  }
+}
