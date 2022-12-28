@@ -1,19 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { Header } from "../Header/Header";
-import CardContainer from "../CardContainer/CardContainer";
-import { Typography } from "@mui/material";
+import { DiscoverGamesPage } from "../DiscoverGamesPage/DiscoverGamesPage";
+import { SingleGamesPage } from "../SingleGamePage/SingleGamesPage";
+import { Route, Switch } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <main>
-        <Typography variant="h3" gutterBottom>
-          Discover Games
-        </Typography>
-        <CardContainer />
-      </main>
+      <Switch>
+        <Route exact path="/" component={DiscoverGamesPage} />
+        <Route exact path="/discover/:slug" component={SingleGamesPage} />
+      </Switch>
     </div>
   );
 }

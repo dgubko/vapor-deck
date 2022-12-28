@@ -2,3 +2,9 @@
   color: white;
   padding: 40px;
 }
+
+.search-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

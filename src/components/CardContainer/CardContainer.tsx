@@ -3,11 +3,11 @@ import React from "react";
 import { getAllGames } from "../../apiCalls";
 import { GameCard, GameCardProps } from "../GameCard/GameCard";
 
-type MyProps = {};
+type MyProps = { query: string };
 type MyState = { games: GameCardProps[]; error?: string };
 
 class CardContainer extends React.Component<MyProps, MyState> {
-  constructor(props: any) {
+  constructor(props: MyProps) {
     super(props);
     this.state = { games: [] };
   }
@@ -19,7 +19,6 @@ class CardContainer extends React.Component<MyProps, MyState> {
   fetchAllGames = async () => {
     try {
       const items = await getAllGames();
-      console.log(items);
       this.setState(items);
     } catch (error) {
       let message = "Unknown Error";
@@ -31,7 +30,10 @@ class CardContainer extends React.Component<MyProps, MyState> {
   };
 
   render() {
-    const gameCards = this.state.games.map((game) => {
+    const filteredBySearch = this.state.games.filter((game) => {
+      return game.name.toLowerCase().includes(this.props.query.toLowerCase());
+    });
+    const gameCards = filteredBySearch.map((game) => {
       return <GameCard key={game.id + game.slug} {...game} />;
     });
     return <section className="game-card-container">{gameCards}</section>;
