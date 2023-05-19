@@ -3,3 +3,9 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
+
+.error-fetch {
+  display: flex;
+  justify-content: center;
+  padding-top: 80px;
+}
